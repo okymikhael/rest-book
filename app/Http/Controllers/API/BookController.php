@@ -16,11 +16,11 @@ class BookController extends Controller
      */
     public function index()
     {
-        $skip = request('skip') ?? 0;
-        $limit = request('limit') ?? 10;
-        $sort = request('sort') ?? 'desc';
+        $skip = request('skip') ? request('skip') : 0;
+        $limit = request('limit') ? request('limit') : 10;
+        $sort = request('sort') ? request('sort') : 'desc';
 
-        $book = Book::skip($skip)->limit($limit)->limit($limit)->orderBy('id', $sort)->get();
+        $book = Book::skip($skip)->limit($limit)->orderBy('id', $sort)->get();
         return response()->json(['message' => 'success', 'data' => $book], 200);
     }
 

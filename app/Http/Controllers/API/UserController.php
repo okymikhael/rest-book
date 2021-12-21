@@ -52,4 +52,10 @@ class UserController extends Controller
         return response()->json(['success' => $user], $this->successStatus);
     }
 
+    public function users()
+    {
+        $user = User::all();
+        return response()->json(['success' => $user], $this->successStatus);
+    }
+
 }

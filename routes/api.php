@@ -25,6 +25,7 @@ Route::post('register', [UserController::class, 'register']);
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', [UserController::class, 'details']);
+    Route::post('users', [UserController::class, 'users']);
     
     Route::resource('book', BookController::class);
 });
